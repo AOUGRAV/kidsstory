@@ -9,6 +9,19 @@ window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 20);
 });
 
+if (!prefersReducedMotion.matches && window.Lenis) {
+  const lenis = new Lenis({
+    autoRaf: true,
+    anchors: true,
+    lerp: 0.08,
+    smoothWheel: true
+  });
+
+  window.addEventListener("load", () => {
+    lenis.resize();
+  });
+}
+
 if (menuButton && nav) {
   menuButton.addEventListener("click", () => {
     const isOpen = menuButton.getAttribute("aria-expanded") === "true";
@@ -29,23 +42,6 @@ const observer = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-
-        if (canAnimate) {
-          window.gsap.fromTo(
-            entry.target,
-            { autoAlpha: 0, y: 28 },
-            {
-              autoAlpha: 1,
-              y: 0,
-              duration: 0.78,
-              ease: "power2.out",
-              overwrite: "auto"
-            }
-          );
-        } else {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "none";
-        }
         observer.unobserve(entry.target);
       }
     });
@@ -72,4 +68,7 @@ if (canAnimate) {
   });
 }
 
-revealElements.forEach((element) => observer.observe(element));
+revealElements.forEach((element, index) => {
+  element.style.setProperty("--reveal-delay", `${Math.min(index * 35, 180)}ms`);
+  observer.observe(element);
+});
