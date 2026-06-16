@@ -2,26 +2,12 @@ const header = document.querySelector(".site-header");
 const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".main-nav");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const revealElements = document.querySelectorAll(".reveal");
+const canAnimate = Boolean(window.gsap) && !prefersReducedMotion.matches;
 
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 20);
 });
-
-if (!prefersReducedMotion.matches && window.Lenis) {
-  const lenis = new Lenis({
-    anchors: true,
-    lerp: 0.08,
-    smoothWheel: true,
-    smoothTouch: false
-  });
-
-  const raf = (time) => {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  };
-
-  requestAnimationFrame(raf);
-}
 
 if (menuButton && nav) {
   menuButton.addEventListener("click", () => {
@@ -42,16 +28,23 @@ const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        if (window.gsap && !prefersReducedMotion.matches) {
-          window.gsap.to(entry.target, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.78,
-            ease: "power2.out",
-            clearProps: "transform,visibility,opacity"
-          });
+        entry.target.classList.add("visible");
+
+        if (canAnimate) {
+          window.gsap.fromTo(
+            entry.target,
+            { autoAlpha: 0, y: 28 },
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.78,
+              ease: "power2.out",
+              overwrite: "auto"
+            }
+          );
         } else {
-          entry.target.classList.add("visible");
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "none";
         }
         observer.unobserve(entry.target);
       }
@@ -60,10 +53,7 @@ const observer = new IntersectionObserver(
   { threshold: 0.12 }
 );
 
-const revealElements = document.querySelectorAll(".reveal");
-
-if (window.gsap && !prefersReducedMotion.matches) {
-  window.gsap.set(revealElements, { autoAlpha: 0, y: 28 });
+if (canAnimate) {
   window.gsap.from(".hero-sticker", {
     autoAlpha: 0,
     scale: 0.82,
