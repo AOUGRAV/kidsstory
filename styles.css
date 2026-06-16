@@ -206,8 +206,8 @@ blockquote mark { background: none; color: var(--coral-dark); position: relative
 .section-heading.centered { display: block; text-align: center; max-width: 700px; margin-inline: auto; }
 .centered p { margin-inline: auto; max-width: 550px; color: var(--muted); font-size: 14px; }
 .branch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1160px; margin: 50px auto 0; }
-.branch-card { background: white; border: 1px solid #e8e6dd; border-radius: 28px; padding: 34px; box-shadow: 0 14px 45px rgba(37,58,53,.07); }
-.branch-card.featured { border: 2px solid var(--coral); transform: rotate(-1deg); }
+.branch-card { background: white; border: 1px solid #e8e6dd; border-radius: 28px; padding: 34px; box-shadow: 0 14px 45px rgba(37,58,53,.07); display: flex; flex-direction: column; }
+.branch-card.featured { border-color: var(--coral); box-shadow: 0 14px 45px rgba(37,58,53,.07), inset 0 0 0 1px var(--coral); }
 .branch-top { display: flex; align-items: center; justify-content: space-between; }
 .location-pin { width: 48px; height: 48px; border-radius: 15px; display: grid; place-items: center; background: #f8ddd5; color: var(--coral); font-size: 23px; }
 .branch-tag { font-size: 10px; color: var(--coral-dark); background: #fff1ee; padding: 5px 10px; border-radius: 99px; }
@@ -218,7 +218,17 @@ blockquote mark { background: none; color: var(--coral-dark); position: relative
 .branch-hours div { display: grid; }
 .branch-hours small { color: var(--muted); font-size: 10px; }
 .branch-hours strong { font-size: 12px; line-height: 1.8; }
+.branch-socials { display: flex; align-items: center; justify-content: center; gap: 10px; direction: ltr; margin: 0 0 22px; padding: 12px; border-radius: 18px; background: #fffaf0; border: 1px solid #eee7d8; }
+.social-icon { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; color: white; transition: transform .2s, box-shadow .2s; }
+.social-icon:hover { transform: translateY(-3px); box-shadow: 0 12px 22px rgba(37,58,53,.12); }
+.social-icon svg { width: 23px; height: 23px; display: block; fill: currentColor; }
+.social-icon.instagram { background: radial-gradient(circle at 30% 110%, #feda75 0 23%, #fa7e1e 37%, #d62976 56%, #962fbf 74%, #4f5bd5 100%); }
+.social-icon.instagram svg { fill: none; stroke: white; stroke-width: 1.8; }
+.social-icon.snapchat { background: #fffc00; color: #111; border: 1px solid #e9df17; }
+.social-icon.tiktok { background: #111; color: white; box-shadow: inset 4px 0 0 #25f4ee, inset -4px 0 0 #fe2c55; }
+.social-icon.whatsapp { background: #25d366; }
 .button-wide { width: 100%; min-height: 50px; font-size: 13px; }
+.branch-card .button-wide { margin-top: auto; }
 
 .final-cta { padding: 85px 0; background: var(--coral); color: white; position: relative; overflow: hidden; }
 .final-cta::after { content: ""; position: absolute; width: 320px; height: 320px; border-radius: 50%; border: 60px solid rgba(255,255,255,.08); left: -100px; bottom: -180px; }
