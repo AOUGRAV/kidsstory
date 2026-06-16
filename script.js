@@ -38,13 +38,6 @@ if (menuButton && nav) {
   });
 }
 
-document.querySelectorAll(".video-card video").forEach((video) => {
-  const card = video.closest(".video-card");
-  video.addEventListener("play", () => card?.classList.add("is-playing"));
-  video.addEventListener("pause", () => card?.classList.remove("is-playing"));
-  video.addEventListener("ended", () => card?.classList.remove("is-playing"));
-});
-
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
