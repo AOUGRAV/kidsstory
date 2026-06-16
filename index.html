@@ -24,6 +24,7 @@
 
       <nav class="main-nav" id="main-nav" aria-label="التنقل الرئيسي">
         <a href="#about">عن المركز</a>
+        <a href="#story-video">أجواء المركز</a>
         <a href="#method">منهجيتنا</a>
         <a href="#values">قيمنا</a>
         <a href="#branches">فروعنا</a>
@@ -94,11 +95,31 @@
           </div>
         </div>
       </div>
-    </section>
+      </section>
 
-    <section class="section vision-section">
-      <div class="container">
-        <div class="vision-card reveal">
+      <section class="section video-story" id="story-video">
+        <div class="container video-layout">
+          <div class="section-copy reveal">
+            <div class="section-kicker">لمحة من يومنا</div>
+            <h2>أجواء مليئة<br><span>بالتعلّم والمرح</span></h2>
+            <p class="lead">شاهد جانبًا من أجواء الأطفال داخل مركز حكاية طفل، حيث تتحول اللحظات اليومية إلى تجربة ممتعة وآمنة.</p>
+            <div class="mini-points video-points">
+              <span><i>✓</i> تفاعل يومي</span>
+              <span><i>✓</i> أنشطة جماعية</span>
+              <span><i>✓</i> بيئة قريبة من الطفل</span>
+            </div>
+          </div>
+          <div class="video-card reveal">
+            <video controls playsinline preload="metadata" src="assets/kidsstory-day.mp4" aria-label="فيديو من أنشطة مركز حكاية طفل">
+              متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section class="section vision-section">
+        <div class="container">
+          <div class="vision-card reveal">
           <div class="vision-label">رؤيتنا</div>
           <blockquote>أن نُسهم في بناء طفل <mark>سعيد</mark>، يلعب، يفكر، يتعلّم، ينمو ويبتكر؛ معتز بدينه، محب لوطنه، ونافع لمجتمعه.</blockquote>
           <div class="vision-shape" aria-hidden="true"></div>
@@ -302,6 +323,8 @@
     <b>◉</b>
   </a>
 
-  <script src="script.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script defer src="script.js"></script>
 </body>
 </html>
