@@ -134,7 +134,7 @@ h1 em::after { content: ""; position: absolute; height: 7px; background: var(--s
 .split-layout { display: grid; grid-template-columns: .92fr 1fr; gap: 100px; align-items: center; }
 .about-visual { position: relative; min-height: 525px; }
 .photo-card { position: absolute; inset: 0 35px 0 0; overflow: hidden; border-radius: 48% 48% 24px 24px / 30% 30% 24px 24px; background: #eadcc8; }
-.photo-card img { height: 100%; width: 100%; object-fit: cover; object-position: 70% center; transform: scale(1.35); }
+.photo-card img { height: 100%; width: 100%; object-fit: cover; object-position: 58% center; transform: scale(1.05); }
 .age-badge { position: absolute; bottom: 32px; left: -10px; background: var(--sun); width: 160px; height: 160px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-7deg); border: 9px solid var(--paper); box-shadow: var(--shadow); }
 .age-badge strong { font-size: 40px; line-height: 1; }
 .age-badge span { font-size: 11px; line-height: 1.5; text-align: center; margin-top: 6px; }
