@@ -202,7 +202,7 @@ blockquote mark { background: none; color: var(--coral-dark); position: relative
 .team-stat strong { display: block; font-size: 34px; color: var(--coral); line-height: 1.2; }
 .team-stat span { font-size: 11px; color: var(--muted); }
 
-.branches { padding-bottom: 120px; }
+.branches { padding-bottom: 120px; position: relative; z-index: 41; background: var(--paper); }
 .section-heading.centered { display: block; text-align: center; max-width: 700px; margin-inline: auto; }
 .centered p { margin-inline: auto; max-width: 550px; color: var(--muted); font-size: 14px; }
 .branch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1160px; margin: 50px auto 0; }
@@ -218,7 +218,7 @@ blockquote mark { background: none; color: var(--coral-dark); position: relative
 .branch-hours div { display: grid; }
 .branch-hours small { color: var(--muted); font-size: 10px; }
 .branch-hours strong { font-size: 12px; line-height: 1.8; }
-.branch-socials { display: flex; align-items: center; justify-content: center; gap: 10px; direction: ltr; margin: 0 0 22px; padding: 12px; border-radius: 18px; background: #fffaf0; border: 1px solid #eee7d8; }
+.branch-socials { display: flex; align-items: center; justify-content: center; gap: 14px; direction: ltr; margin: 0 0 22px; padding: 14px 12px; border-radius: 20px; background: linear-gradient(135deg, #fffaf0, #fff4e9); border: 1px solid #eee7d8; }
 .social-icon { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; color: white; transition: transform .2s, box-shadow .2s; }
 .social-icon:hover { transform: translateY(-3px); box-shadow: 0 12px 22px rgba(37,58,53,.12); }
 .social-icon svg { width: 23px; height: 23px; display: block; fill: currentColor; }
@@ -227,6 +227,18 @@ blockquote mark { background: none; color: var(--coral-dark); position: relative
 .social-icon.snapchat { background: #fffc00; color: #111; border: 1px solid #e9df17; }
 .social-icon.tiktok { background: #111; color: white; box-shadow: inset 4px 0 0 #25f4ee, inset -4px 0 0 #fe2c55; }
 .social-icon.whatsapp { background: #25d366; }
+.branch-socials .social-icon { position: relative; width: 58px; height: 58px; border: 0; border-radius: 18px; background: transparent; color: white; overflow: visible; box-shadow: none; isolation: isolate; }
+.branch-socials .social-icon::before { content: ""; position: absolute; inset: 3px; z-index: -1; border-radius: 42% 58% 50% 50% / 58% 42% 58% 42%; transform: rotate(-8deg); box-shadow: 0 12px 22px rgba(37,58,53,.11); }
+.branch-socials .social-icon::after { content: ""; position: absolute; z-index: -1; inset: 11px 7px 8px; border: 3px solid rgba(255,255,255,.32); border-radius: 48% 52% 46% 54%; transform: rotate(12deg); }
+.branch-socials .social-icon:hover { transform: translateY(-4px) rotate(2deg); box-shadow: none; }
+.branch-socials .social-icon svg { width: 27px; height: 27px; }
+.branch-socials .social-icon.instagram svg { stroke: currentColor; }
+.branch-socials .social-icon.snapchat { color: white; }
+.branch-socials .social-icon.snapchat::before { background: #ffc928; clip-path: polygon(12% 24%, 32% 12%, 57% 6%, 78% 16%, 93% 39%, 84% 61%, 92% 80%, 63% 91%, 38% 86%, 14% 94%, 7% 68%, 14% 48%); }
+.branch-socials .social-icon.instagram::before { background: linear-gradient(135deg, var(--coral), #f4a261 54%, var(--sun)); clip-path: polygon(19% 10%, 47% 5%, 76% 15%, 91% 38%, 84% 70%, 62% 91%, 30% 86%, 8% 61%, 10% 29%); }
+.branch-socials .social-icon.tiktok { box-shadow: none; }
+.branch-socials .social-icon.tiktok::before { background: linear-gradient(135deg, var(--deep-mint), #5aa7b8 58%, var(--sky)); clip-path: polygon(13% 31%, 33% 9%, 68% 8%, 89% 29%, 86% 64%, 68% 88%, 32% 91%, 9% 71%); }
+.branch-socials .social-icon.whatsapp { background: #25d366; }
 .button-wide { width: 100%; min-height: 50px; font-size: 13px; }
 .branch-card .button-wide { margin-top: auto; }
 
